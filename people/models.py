@@ -1,5 +1,6 @@
 from django.db import models
 
+
 class People(models.Model):
     class Position(models.IntegerChoices):
         Default = 0, 'Default'
