@@ -61,7 +61,7 @@ class Course(models.Model):
     references = models.CharField(max_length=512, blank=True, null=True)
     objectives = models.CharField(max_length=512, blank=True, null=True)
     justification = models.CharField(max_length=512, blank=True, null=True)
-    semester = models.ManyToManyField(Curriculum, related_name="courses")
+    semester = models.ManyToManyField(Semester, related_name="courses")
 
     def __str__(self):
         return f"{self.code}: {self.name}"
