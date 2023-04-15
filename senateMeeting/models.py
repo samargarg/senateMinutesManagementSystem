@@ -16,6 +16,8 @@ class SenatePoint(models.Model):
     proposal = models.CharField(max_length=512, blank=True, null=True)
     resolution = models.CharField(max_length=512, blank=True, null=True)
     parent = models.ForeignKey("self", on_delete=models.CASCADE, related_name="subPoints", null=True, blank=True)
+    isApproved = models.BooleanField(blank=True, null=True)
+
     senateMeeting = models.ForeignKey(SenateMeeting, on_delete=models.CASCADE, related_name="senatePoints")
 
     def __str__(self):
