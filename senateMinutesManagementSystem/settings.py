@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     "curriculum",
     "people",
     "users",
+    "handbook",
 
     'django.contrib.sites',
     'allauth',

@@ -30,3 +30,4 @@ class CourseViewSet(viewsets.ModelViewSet):
     queryset = Course.objects.all().order_by('code')
     serializer_class = CourseSerializer
     permission_classes = [permissions.IsAuthenticated]
+

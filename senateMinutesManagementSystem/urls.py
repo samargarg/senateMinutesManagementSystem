@@ -27,6 +27,7 @@ urlpatterns = [
     path("curriculum/", include("curriculum.urls")),
     path("people/", include("people.urls")),
     path("users/", include("users.urls")),
+    path("handbook/", include("handbook.urls")),
     path('accounts/', include('allauth.urls')),
 ]
 
