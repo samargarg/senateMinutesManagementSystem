@@ -12,7 +12,7 @@ class SenateMeetingViewSet(viewsets.ModelViewSet):
     """
     queryset = SenateMeeting.objects.all().order_by('lastModified')
     serializer_class = SenateMeetingSerializer
-    permission_classes = []
+    permission_classes = [permissions.IsAuthenticated]
 
 
 class SenatePointViewSet(viewsets.ModelViewSet):
@@ -21,7 +21,7 @@ class SenatePointViewSet(viewsets.ModelViewSet):
     """
     queryset = SenatePoint.objects.all().order_by('number')
     serializer_class = SenatePointSerializer
-    permission_classes = []
+    permission_classes = [permissions.IsAuthenticated]
 
 
 class AnnexureViewSet(viewsets.ModelViewSet):
@@ -30,4 +30,4 @@ class AnnexureViewSet(viewsets.ModelViewSet):
     """
     queryset = Annexure.objects.all().order_by('number')
     serializer_class = AnnexureSerializer
-    permission_classes = []
+    permission_classes = [permissions.IsAuthenticated]

@@ -10,7 +10,7 @@ class CurriculumViewSet(viewsets.ModelViewSet):
     """
     queryset = Curriculum.objects.all().order_by('senateMeeting__dateCreated')
     serializer_class = CurriculumSerializer
-    permission_classes = []
+    permission_classes = [permissions.IsAuthenticated]
 
 
 class SemesterViewSet(viewsets.ModelViewSet):
@@ -20,7 +20,7 @@ class SemesterViewSet(viewsets.ModelViewSet):
     queryset = Semester.objects.all().order_by('curriculum__program', 'curriculum__batch', 'curriculum__branch',
                                                'number')
     serializer_class = SemesterSerializer
-    permission_classes = []
+    permission_classes = [permissions.IsAuthenticated]
 
 
 class CourseViewSet(viewsets.ModelViewSet):
@@ -29,4 +29,4 @@ class CourseViewSet(viewsets.ModelViewSet):
     """
     queryset = Course.objects.all().order_by('code')
     serializer_class = CourseSerializer
-    permission_classes = []
+    permission_classes = [permissions.IsAuthenticated]
