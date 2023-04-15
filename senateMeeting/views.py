@@ -83,6 +83,8 @@ class PublishHandbook(APIView):
             print(senatePoint.handbookPoint)
             senatePoint.handbookPoint.text = senatePoint.handbookPointNewText
             senatePoint.handbookPoint.save()
+            senatePoint.handbookPointConfirmed = senatePoint.handbookPoint
+            senatePoint.save()
 
         handbookPoints = HandbookPoint.objects.all()
         handbookPointsSerializer = HandbookPointSerializer(handbookPoints, many=True)

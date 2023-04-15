@@ -21,7 +21,8 @@ class SenatePoint(models.Model):
     parent = models.ForeignKey("self", on_delete=models.CASCADE, related_name="subPoints", null=True, blank=True)
     senateMeeting = models.ForeignKey(SenateMeeting, on_delete=models.CASCADE, related_name="senatePoints")
     handbookPointNewText = models.TextField(blank=True, null=True)
-    handbookPoint = models.ForeignKey(HandbookPoint, on_delete=models.CASCADE, related_name="versionHistory", blank=True, null=True)
+    handbookPoint = models.ForeignKey(HandbookPoint, on_delete=models.CASCADE, blank=True, null=True)
+    handbookPointConfirmed = models.ForeignKey(HandbookPoint, on_delete=models.CASCADE, related_name="versionHistory", blank=True, null=True)
 
     def __str__(self):
         return f"{self.number}: {self.proposal}"
