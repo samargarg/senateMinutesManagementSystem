@@ -5,7 +5,7 @@ from .models import *
 class HandbookSectionSerializer(serializers.ModelSerializer):
     class Meta:
         model = HandbookSection
-        fields = ['number', 'handbookPoints']
+        fields = ['number', 'name', 'handbookPoints']
 
 
 class HandbookPointSerializer(serializers.ModelSerializer):
