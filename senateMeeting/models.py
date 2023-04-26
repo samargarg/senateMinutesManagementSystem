@@ -7,6 +7,9 @@ class SenateMeeting(models.Model):
     announcement = models.CharField(max_length=512, blank=True, null=True)
     dateCreated = models.DateTimeField(auto_now_add=True)
     lastModified = models.DateTimeField(auto_now=True)
+    agendaFinalised = models.BooleanField(default=False)
+    resolutionFinalised = models.BooleanField(default=False)
+    published = models.BooleanField(default=False)
 
     def __str__(self):
         return f"{self.number} Senate Meeting"
@@ -29,7 +32,7 @@ class SenatePoint(models.Model):
 
 
 class Annexure(models.Model):
-    number = models.IntegerField(primary_key=True)
+    number = models.IntegerField()
     attachedPDF = models.FileField(upload_to="annexures/", default=None, null=True)
     senateMeeting = models.ForeignKey(SenateMeeting, on_delete=models.CASCADE, related_name="annexures")
 

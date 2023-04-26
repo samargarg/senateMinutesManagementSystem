@@ -27,6 +27,7 @@ class SenatePointViewSet(viewsets.ModelViewSet):
     # permission_classes = [permissions.IsAuthenticated]
     permission_classes = []
 
+
 class AnnexureViewSet(viewsets.ModelViewSet):
     """
     API endpoint that allows users to be viewed or edited.
@@ -90,4 +91,37 @@ class PublishHandbook(APIView):
         handbookPointsSerializer = HandbookPointSerializer(handbookPoints, many=True)
         return Response({"success": True,
                          "handbookPoints": handbookPointsSerializer.data},
+                        status=status.HTTP_200_OK)
+
+
+class GetAgendaTabSenateMeetings(APIView):
+    permission_classes = []
+
+    def get(self, request):
+        senateMeetings = SenateMeeting.objects.filter(agendaFinalised=False)
+        senateMeetingSerializer = SenateMeetingSerializer(senateMeetings, many=True)
+        return Response({"success": True,
+                         "senateMeetings": senateMeetingSerializer.data},
+                        status=status.HTTP_200_OK)
+
+
+class GetSenateDecisionTabSenateMeetings(APIView):
+    permission_classes = []
+
+    def get(self, request):
+        senateMeetings = SenateMeeting.objects.filter(agendaFinalised=True, resolutionFinalised=False)
+        senateMeetingSerializer = SenateMeetingSerializer(senateMeetings, many=True)
+        return Response({"success": True,
+                         "senateMeetings": senateMeetingSerializer.data},
+                        status=status.HTTP_200_OK)
+
+
+class GetUpdateHandbookTabSenateMeetings(APIView):
+    permission_classes = []
+
+    def get(self, request):
+        senateMeetings = SenateMeeting.objects.filter(resolutionFinalised=True, published=False)
+        senateMeetingSerializer = SenateMeetingSerializer(senateMeetings, many=True)
+        return Response({"success": True,
+                         "senateMeetings": senateMeetingSerializer.data},
                         status=status.HTTP_200_OK)

@@ -5,7 +5,7 @@ from .models import *
 class SenateMeetingSerializer(serializers.ModelSerializer):
     class Meta:
         model = SenateMeeting
-        fields = ['number', 'announcement', 'dateCreated', 'lastModified', 'senatePoints', 'annexures']
+        fields = ['number', 'announcement', 'dateCreated', 'lastModified', 'senatePoints', 'annexures', 'agendaFinalised', 'resolutionFinalised', 'published']
 
 
 class SenatePointSerializer(serializers.ModelSerializer):
@@ -17,4 +17,4 @@ class SenatePointSerializer(serializers.ModelSerializer):
 class AnnexureSerializer(serializers.ModelSerializer):
     class Meta:
         model = Annexure
-        fields = ['number', 'attachedPDF', 'senateMeeting']
+        fields = ['id', 'number', 'attachedPDF', 'senateMeeting']

@@ -28,6 +28,7 @@ class HandbookPointViewSet(viewsets.ModelViewSet):
 
 class GetHandbookPointsBySectionNumber(APIView):
     permission_classes = []
+
     def get(self, request):
         try:
             if "handbookSection" not in request.GET:
