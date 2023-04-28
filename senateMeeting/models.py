@@ -16,12 +16,19 @@ class SenateMeeting(models.Model):
 
 
 class SenatePoint(models.Model):
+
+    class ApprovalChoices(models.IntegerChoices):
+        APPROVED = 0, 'Approved'
+        NOT_APPROVED = 1, 'Not Approved'
+        RECTIFIED = 2, 'Rectified'
+        NOTED = 3, 'Noted'
+
     number = models.CharField(max_length=2)
     name = models.CharField(max_length=2048, blank=True, null=True)
     proposal = models.CharField(max_length=2048, blank=True, null=True)
     resolution = models.CharField(max_length=2048, blank=True, null=True)
     approvalComplete = models.BooleanField(default=False)
-    approved = models.BooleanField(default=False)
+    approved = models.PositiveSmallIntegerField(choices=ApprovalChoices.choices, blank=True, null=True)
     parent = models.ForeignKey("self", on_delete=models.CASCADE, related_name="subPoints", null=True, blank=True)
     senateMeeting = models.ForeignKey(SenateMeeting, on_delete=models.CASCADE, related_name="senatePoints")
     handbookPointNewText = models.TextField(blank=True, null=True)
