@@ -11,7 +11,7 @@ class SenateMeetingSerializer(serializers.ModelSerializer):
 class SenatePointSerializer(serializers.ModelSerializer):
     class Meta:
         model = SenatePoint
-        fields = ['id', 'number', 'proposal', 'resolution', 'approvalComplete', 'approved', 'parent', 'subPoints', 'senateMeeting', 'handbookPointNewText', 'handbookPoint']
+        fields = ['id', 'number', 'name', 'proposal', 'resolution', 'approvalComplete', 'approved', 'parent', 'subPoints', 'senateMeeting', 'handbookPointNewText', 'handbookPoint']
 
 
 class AnnexureSerializer(serializers.ModelSerializer):

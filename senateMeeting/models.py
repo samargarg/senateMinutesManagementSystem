@@ -17,8 +17,9 @@ class SenateMeeting(models.Model):
 
 class SenatePoint(models.Model):
     number = models.CharField(max_length=2)
-    proposal = models.CharField(max_length=512, blank=True, null=True)
-    resolution = models.CharField(max_length=512, blank=True, null=True)
+    name = models.CharField(max_length=2048, blank=True, null=True)
+    proposal = models.CharField(max_length=2048, blank=True, null=True)
+    resolution = models.CharField(max_length=2048, blank=True, null=True)
     approvalComplete = models.BooleanField(default=False)
     approved = models.BooleanField(default=False)
     parent = models.ForeignKey("self", on_delete=models.CASCADE, related_name="subPoints", null=True, blank=True)
