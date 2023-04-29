@@ -29,6 +29,7 @@ urlpatterns = [
     path("users/", include("users.urls")),
     path("handbook/", include("handbook.urls")),
     path('accounts/', include('allauth.urls')),
+    path('__debug__/', include('debug_toolbar.urls')),
 ]
 
 if settings.DEBUG:

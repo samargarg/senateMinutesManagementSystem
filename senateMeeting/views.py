@@ -14,8 +14,8 @@ class SenateMeetingViewSet(viewsets.ModelViewSet):
     """
     queryset = SenateMeeting.objects.all().order_by('lastModified')
     serializer_class = SenateMeetingSerializer
-    # permission_classes = [permissions.IsAuthenticated]
-    permission_classes = []
+    permission_classes = [permissions.IsAuthenticated]
+    # permission_classes = []
 
 
 class SenatePointViewSet(viewsets.ModelViewSet):
@@ -24,8 +24,8 @@ class SenatePointViewSet(viewsets.ModelViewSet):
     """
     queryset = SenatePoint.objects.all().order_by('number')
     serializer_class = SenatePointSerializer
-    # permission_classes = [permissions.IsAuthenticated]
-    permission_classes = []
+    permission_classes = [permissions.IsAuthenticated]
+    # permission_classes = []
 
 
 class AnnexureViewSet(viewsets.ModelViewSet):

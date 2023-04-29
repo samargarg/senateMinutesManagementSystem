@@ -53,7 +53,9 @@ INSTALLED_APPS = [
     'allauth.account',
     'allauth.socialaccount',
     'allauth.socialaccount.providers.google',
-    'corsheaders'
+    'corsheaders',
+
+    'debug_toolbar'
 ]
 
 SITE_ID = 1
@@ -82,8 +84,9 @@ MIDDLEWARE = [
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
     "whitenoise.middleware.WhiteNoiseMiddleware",
-'corsheaders.middleware.CorsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
+    'debug_toolbar.middleware.DebugToolbarMiddleware'
 
 ]
 
@@ -169,12 +172,23 @@ MEDIA_URL = "/media/"
 
 # django_heroku.settings(locals)
 
-# REST_FRAMEWORK = {
-#     # Use Django's standard `django.contrib.auth` permissions,
-#     # or allow read-only access for unauthenticated users.
-#     "DEFAULT_PERMISSION_CLASSES": ("rest_framework.permissions.IsAuthenticated",),
-#     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination', 'PAGE_SIZE': 10,
-#     "DEFAULT_AUTHENTICATION_CLASSES": (
-#         "rest_framework.authentication.TokenAuthentication",
-#     )
-# }
+REST_FRAMEWORK = {
+    # Use Django's standard `django.contrib.auth` permissions,
+    # or allow read-only access for unauthenticated users.
+    "DEFAULT_PERMISSION_CLASSES": ("rest_framework.permissions.IsAuthenticated",),
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination', 'PAGE_SIZE': 10,
+    "DEFAULT_AUTHENTICATION_CLASSES": (
+        "rest_framework.authentication.TokenAuthentication",
+    )
+}
+
+
+# TODO This must be the react homepage
+# LOGIN_REDIRECT_URL = 'https://www.wikipedia.org'
+# ACCOUNT_LOGOUT_REDIRECT_URL = ""
+
+INTERNAL_IPS = ["127.0.0.1", ]
+
+ACCOUNT_ADAPTER = 'users.adapter.MyAccountAdapter'
+SOCIALACCOUNT_ADAPTER = "users.adapter.MyAccountSocialAdapter"
+
