@@ -12,8 +12,8 @@ class HandbookSectionViewSet(viewsets.ModelViewSet):
     """
     queryset = HandbookSection.objects.all().order_by('number')
     serializer_class = HandbookSectionSerializer
-    # permission_classes = [permissions.IsAuthenticated]
-    permission_classes = []
+    permission_classes = [permissions.IsAuthenticated]
+    # permission_classes = []
 
 
 class HandbookPointViewSet(viewsets.ModelViewSet):
@@ -22,12 +22,14 @@ class HandbookPointViewSet(viewsets.ModelViewSet):
     """
     queryset = HandbookPoint.objects.all().order_by('number')
     serializer_class = HandbookPointSerializer
-    # permission_classes = [permissions.IsAuthenticated]
-    permission_classes = []
+    permission_classes = [permissions.IsAuthenticated]
+    # permission_classes = []
 
 
 class GetHandbookPointsBySectionNumber(APIView):
-    permission_classes = []
+    permission_classes = [permissions.IsAuthenticated]
+
+    # permission_classes = []
 
     def get(self, request):
         try:
