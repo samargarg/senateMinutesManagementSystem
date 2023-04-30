@@ -185,7 +185,7 @@ REST_FRAMEWORK = {
 
 # TODO This must be the react homepage
 # LOGIN_REDIRECT_URL = 'https://www.wikipedia.org'
-# ACCOUNT_LOGOUT_REDIRECT_URL = ""
+ACCOUNT_LOGOUT_REDIRECT_URL = "http://localhost:3000"
 
 INTERNAL_IPS = ["127.0.0.1", ]
 

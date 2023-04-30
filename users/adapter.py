@@ -14,18 +14,19 @@ class MyAccountAdapter(DefaultAccountAdapter):
     def get_login_redirect_url(self, request):
         user = request.user
         print(user)
-        token = Token.objects.get(user=user)
-        if not token:
+        try:
+            token = Token.objects.get(user=user)
+        except Token.DoesNotExist:
             token = Token.objects.create(user=user)
             token.save()
         print(token)
-        path = f"/profile/?token={token}"
+        path = f"http://localhost:3000/accounts/?token={token}"
         return path.format(username=request.user.username)
 
 
-# class MyAccountSocialAdapter(DefaultSocialAccountAdapter):
-#     def save_user(self, request, sociallogin, form=None):
-#         print("FooAppSocialAccountAdapter.save_user")
-#         return super(MyAccountSocialAdapter, self).save_user(
-#             request, sociallogin, form
-#         )
+class MyAccountSocialAdapter(DefaultSocialAccountAdapter):
+    def save_user(self, request, sociallogin, form=None):
+        print("FooAppSocialAccountAdapter.save_user")
+        return super(MyAccountSocialAdapter, self).save_user(
+            request, sociallogin, form
+        )

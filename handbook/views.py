@@ -28,6 +28,7 @@ class HandbookPointViewSet(viewsets.ModelViewSet):
 
 class GetHandbookPointsBySectionNumber(APIView):
     permission_classes = [permissions.IsAuthenticated]
+
     # permission_classes = []
 
     def get(self, request):

@@ -39,8 +39,8 @@ class AnnexureViewSet(viewsets.ModelViewSet):
 
 
 class GetSenatePointsByMeetingNumber(APIView):
-    permission_classes = [permissions.IsAuthenticated]
     # permission_classes = []
+    permission_classes = [permissions.IsAuthenticated]
 
     def get(self, request):
         try:
@@ -62,8 +62,8 @@ class GetSenatePointsByMeetingNumber(APIView):
 
 
 class PublishHandbook(APIView):
-    permission_classes = [permissions.IsAuthenticated]
     # permission_classes = []
+    permission_classes = [permissions.IsAuthenticated]
 
     def post(self, request):
         try:
@@ -98,8 +98,8 @@ class PublishHandbook(APIView):
 
 
 class GetAgendaTabSenateMeetings(APIView):
-    permission_classes = [permissions.IsAuthenticated]
     # permission_classes = []
+    permission_classes = [permissions.IsAuthenticated]
 
     def get(self, request):
         senateMeetings = SenateMeeting.objects.filter(agendaFinalised=False)
@@ -110,8 +110,8 @@ class GetAgendaTabSenateMeetings(APIView):
 
 
 class GetSenateDecisionTabSenateMeetings(APIView):
-    permission_classes = [permissions.IsAuthenticated]
     # permission_classes = []
+    permission_classes = [permissions.IsAuthenticated]
 
     def get(self, request):
         senateMeetings = SenateMeeting.objects.filter(agendaFinalised=True, resolutionFinalised=False)
@@ -122,8 +122,8 @@ class GetSenateDecisionTabSenateMeetings(APIView):
 
 
 class GetUpdateHandbookTabSenateMeetings(APIView):
-    permission_classes = [permissions.IsAuthenticated]
     # permission_classes = []
+    permission_classes = [permissions.IsAuthenticated]
 
     def get(self, request):
         senateMeetings = SenateMeeting.objects.filter(resolutionFinalised=True, published=False)
