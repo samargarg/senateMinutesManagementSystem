@@ -12,6 +12,7 @@ class HandbookSection(models.Model):
 class HandbookPoint(models.Model):
     number = models.IntegerField()
     text = models.TextField(blank=True, null=True)
+
     handbookSection = models.ForeignKey(HandbookSection, on_delete=models.CASCADE, related_name="handbookPoints")
 
     def __str__(self):
